@@ -182,7 +182,11 @@
       "languageVersion": "2.2"
     }
   ],
+<<<<<<< HEAD
   "generated": "2020-01-11T10:30:25.970999Z",
+=======
+  "generated": "2020-01-11T07:18:35.998829Z",
+>>>>>>> scuba_customizations
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }
