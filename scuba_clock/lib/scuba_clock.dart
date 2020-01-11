@@ -16,7 +16,7 @@ import 'package:vector_math/vector_math_64.dart' show radians;
 import 'animations/background_animation.dart';
 import 'animations/container_hand_animation.dart';
 import 'animations/dot_animation.dart';
-import 'animations/particle_animation.dart';
+import 'animations/bubble_animation.dart';
 import 'animations/sine_wave_animation.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
@@ -180,7 +180,7 @@ class _ScubaClockState extends State<ScubaClock> {
 
             DrawnMinuteDial(color: Colors.white24, size: 0.8),
 
-            Positioned.fill(child: ParticleAnimation(40)),
+            Positioned.fill(child: BubbleAnimation(40)),
 
             Positioned.fill(
               child: SineWaveAnimation(

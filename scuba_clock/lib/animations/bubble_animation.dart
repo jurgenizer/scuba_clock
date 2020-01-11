@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 
-class ParticleAnimation extends StatefulWidget {
-  final int numberOfParticles;
+class BubbleAnimation extends StatefulWidget {
+  final int numberOfBubbles;
 
-  ParticleAnimation(this.numberOfParticles);
+  BubbleAnimation(this.numberOfBubbles);
 
   @override
-  _ParticleAnimationState createState() => _ParticleAnimationState();
+  _BubbleAnimationState createState() => _BubbleAnimationState();
 }
 
-class _ParticleAnimationState extends State<ParticleAnimation> {
+class _BubbleAnimationState extends State<BubbleAnimation> {
   final Random random = Random();
 
-  final List<ParticleModel> particles = [];
+  final List<ParticleModel> bubbles = [];
 
   @override
   void initState() {
-    List.generate(widget.numberOfParticles, (index) {
-      particles.add(ParticleModel(random));
+    List.generate(widget.numberOfBubbles, (index) {
+      bubbles.add(ParticleModel(random));
     });
     super.initState();
   }
@@ -31,17 +31,17 @@ class _ParticleAnimationState extends State<ParticleAnimation> {
   Widget build(BuildContext context) {
     return Rendering(
       startTime: Duration(seconds: 30),
-      onTick: _simulateParticles,
+      onTick: _simulateBubbles,
       builder: (context, time) {
         return CustomPaint(
-          painter: ParticlePainter(particles, time),
+          painter: ParticlePainter(bubbles, time),
         );
       },
     );
   }
 
-  _simulateParticles(Duration time) {
-    particles.forEach((particle) => particle.maintainRestart(time));
+  _simulateBubbles(Duration time) {
+    bubbles.forEach((particle) => particle.maintainRestart(time));
   }
 }
 
@@ -80,16 +80,16 @@ class ParticleModel {
 }
 
 class ParticlePainter extends CustomPainter {
-  List<ParticleModel> particles;
+  List<ParticleModel> bubbles;
   Duration time;
 
-  ParticlePainter(this.particles, this.time);
+  ParticlePainter(this.bubbles, this.time);
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = Colors.white.withAlpha(20);
 
-    particles.forEach((particle) {
+    bubbles.forEach((particle) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
