@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:jelly_clock/styles.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class DotAnimation extends StatelessWidget {

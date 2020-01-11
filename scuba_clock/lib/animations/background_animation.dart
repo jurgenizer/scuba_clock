@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jelly_clock/styles.dart';
+
 import 'package:simple_animations/simple_animations.dart';
+
+import '../styles.dart';
 
 class BackgroundAnimation extends StatelessWidget {
   @override
