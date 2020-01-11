@@ -55,8 +55,8 @@ class ParticleModel {
   }
 
   restart({Duration time = Duration.zero}) {
-    final startPosition = Offset(-0.2 + 1.4 * random.nextDouble(), 2.2);
-    final endPosition = Offset(-0.2 + 1.3 * random.nextDouble(), -0.2);
+    final startPosition = Offset(2.2, -0.2 + 1.4 * random.nextDouble());
+    final endPosition = Offset(-0.2, -0.2 + 1.3 * random.nextDouble());
     final duration = Duration(milliseconds: 16000 + random.nextInt(16000));
 
     tween = MultiTrackTween([
@@ -86,14 +86,14 @@ class ParticlePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.white.withAlpha(20);
+    final paint = Paint()..color = Colors.teal[700];
 
     fish.forEach((particle) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
-      canvas.drawCircle(position, size.width * 0.2 * particle.size, paint);
+      canvas.drawCircle(position, size.width * 0.3 * particle.size, paint);
     });
   }
 

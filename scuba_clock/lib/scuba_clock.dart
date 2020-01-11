@@ -16,6 +16,7 @@ import 'animations/background_animation.dart';
 import 'animations/container_hand_animation.dart';
 import 'animations/dot_animation.dart';
 import 'animations/bubble_animation.dart';
+import 'animations/fish_animation.dart';
 import 'animations/sine_wave_animation.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
@@ -169,20 +170,15 @@ class _ScubaClockState extends State<ScubaClock> {
         child: Stack(
           children: [
             Positioned.fill(child: BackgroundAnimation()),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                DrawnMinuteDial(color: Colors.white24, size: 0.8),
-                Icon(Icons.star, color: Colors.green[500]),
-              ],
-            ),
-
-            Positioned.fill(
-              left: 40,
-                child: DrawnHourDial(color: Colors.white10, size: 0.46)),
 
             Positioned.fill(child: BubbleAnimation(40)),
+            Positioned.fill(child: FishAnimation(10)),
+            
+          Positioned.fill(
+                child: DrawnMinuteDial(color: Colors.white24, size: 0.8)),
+
+            Positioned.fill(
+                child: DrawnHourDial(color: Colors.white10, size: 0.46)),
 
             Positioned.fill(
               child: SineWaveAnimation(
