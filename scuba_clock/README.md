@@ -1,6 +1,6 @@
-# Analog Clock
+# Scuba Clock
 
-This app is an example of an analog clock.
+This app is a scuba-themed analog clock.
 It has a light theme and a dark theme, and displays sample weather and location data.
 
 <img src='analog.gif' width='350'>
