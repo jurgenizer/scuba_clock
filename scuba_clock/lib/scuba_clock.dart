@@ -28,16 +28,16 @@ final radiansPerHour = radians(360 / 12);
 /// A basic analog clock.
 ///
 /// You can do better than this!
-class JellyClock extends StatefulWidget {
-  const JellyClock(this.model);
+class ScubaClock extends StatefulWidget {
+  const ScubaClock(this.model);
 
   final ClockModel model;
 
   @override
-  _JellyClockState createState() => _JellyClockState();
+  _ScubaClockState createState() => _ScubaClockState();
 }
 
-class _JellyClockState extends State<JellyClock> {
+class _ScubaClockState extends State<ScubaClock> {
   var _now = DateTime.now();
   var _temperature = '';
   var _temperatureRange = '';
@@ -59,7 +59,7 @@ class _JellyClockState extends State<JellyClock> {
   }
 
   @override
-  void didUpdateWidget(JellyClock oldWidget) {
+  void didUpdateWidget(ScubaClock oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.model != oldWidget.model) {
       oldWidget.model.removeListener(_updateModel);

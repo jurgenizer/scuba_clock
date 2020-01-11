@@ -1,21 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:jelly_clock/styles.dart';
+
 import 'package:simple_animations/simple_animations.dart';
 
-/*
-class ParticleBackgroundApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(children: <Widget>[
-      Positioned.fill(child: BackgroundAnimation()),
-      Positioned.fill(child: ParticleAnimation(30)),
-      Positioned.fill(child: CenteredText()),
-    ]);
-  }
-}
-*/
+
 class ParticleAnimation extends StatefulWidget {
   final int numberOfParticles;
 
