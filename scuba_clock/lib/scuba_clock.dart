@@ -10,7 +10,6 @@ import 'package:flutter/semantics.dart';
 
 import 'package:intl/intl.dart';
 
-
 import 'package:vector_math/vector_math_64.dart' show radians;
 
 import 'animations/background_animation.dart';
@@ -23,8 +22,6 @@ import 'drawn_hour_dial.dart';
 import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
-
-
 
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
@@ -92,17 +89,15 @@ class _ScubaClockState extends State<ScubaClock> {
   }
 
   void _getInitialTime() {
-    
-      // This is used to make sure the animated second dots [ContainerHandAnimation()],
-      // start at the correct angle, as the default container or drawn second hand would.
+    // This is used to make sure the animated second dots [ContainerHandAnimation()],
+    // start at the correct angle, as the default container or drawn second hand would.
 
-      _initialTime = DateTime.now();
-      print('The initial time is: $_initialTime');
-      _initialSecond = _initialTime.second;
-      //_initialSecond = 0; // test value
-      // What is the initial second?
-      print('The initial second is: $_initialSecond');
-  
+    _initialTime = DateTime.now();
+    print('The initial time is: $_initialTime');
+    _initialSecond = _initialTime.second;
+    //_initialSecond = 0; // test value
+    // What is the initial second?
+    print('The initial second is: $_initialSecond');
   }
 
   void _updateTime() {
@@ -131,7 +126,7 @@ class _ScubaClockState extends State<ScubaClock> {
     //    [DigitalClock].
 
     /// Get the size of the screen
-    // var screenSize = MediaQuery.of(context).size;
+    var screenSize = MediaQuery.of(context).size;
 
     // What is the height (shortest side) of the screen?
     // print('Height (shortest side) of the screen: ${screenSize.shortestSide}');
@@ -174,11 +169,18 @@ class _ScubaClockState extends State<ScubaClock> {
         child: Stack(
           children: [
             Positioned.fill(child: BackgroundAnimation()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                DrawnMinuteDial(color: Colors.white24, size: 0.8),
+                Icon(Icons.star, color: Colors.green[500]),
+              ],
+            ),
 
             Positioned.fill(
+              left: 40,
                 child: DrawnHourDial(color: Colors.white10, size: 0.46)),
-
-            DrawnMinuteDial(color: Colors.white24, size: 0.8),
 
             Positioned.fill(child: BubbleAnimation(40)),
 
