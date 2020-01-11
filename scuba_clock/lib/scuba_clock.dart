@@ -13,8 +13,16 @@ import 'package:intl/intl.dart';
 
 import 'package:vector_math/vector_math_64.dart' show radians;
 
+import 'animations/background_animation.dart';
+import 'animations/container_hand_animation.dart';
+import 'animations/dot_animation.dart';
 import 'animations/particle_animation.dart';
+import 'animations/sine_wave_animation.dart';
 import 'container_hand.dart';
+import 'drawn_hour_dial.dart';
+import 'drawn_minute_dial.dart';
+import 'styles.dart';
+import 'time_circle_avatar.dart';
 
 
 
@@ -25,7 +33,7 @@ final radiansPerTick = radians(360 / 60);
 /// Total distance traveled by an hour hand, each hour, in radians.
 final radiansPerHour = radians(360 / 12);
 
-/// A basic analog clock.
+/// A scuba-themed analog clock.
 ///
 /// You can do better than this!
 class ScubaClock extends StatefulWidget {

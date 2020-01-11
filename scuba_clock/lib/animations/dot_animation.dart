@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+import '../styles.dart';
+
 class DotAnimation extends StatelessWidget {
   final double speed;
   final double offset;
