@@ -4,24 +4,24 @@ import 'package:flutter/material.dart';
 
 import 'package:simple_animations/simple_animations.dart';
 
-class BubbleAnimation extends StatefulWidget {
-  final int numberOfBubbles;
+class FishAnimation extends StatefulWidget {
+  final int numberOfFish;
 
-  BubbleAnimation(this.numberOfBubbles);
+  FishAnimation(this.numberOfFish);
 
   @override
-  _BubbleAnimationState createState() => _BubbleAnimationState();
+  _FishAnimationState createState() => _FishAnimationState();
 }
 
-class _BubbleAnimationState extends State<BubbleAnimation> {
+class _FishAnimationState extends State<FishAnimation> {
   final Random random = Random();
 
-  final List<ParticleModel> bubbles = [];
+  final List<ParticleModel> fish = [];
 
   @override
   void initState() {
-    List.generate(widget.numberOfBubbles, (index) {
-      bubbles.add(ParticleModel(random));
+    List.generate(widget.numberOfFish, (index) {
+      fish.add(ParticleModel(random));
     });
     super.initState();
   }
@@ -30,17 +30,17 @@ class _BubbleAnimationState extends State<BubbleAnimation> {
   Widget build(BuildContext context) {
     return Rendering(
       startTime: Duration(seconds: 30),
-      onTick: _simulateBubbles,
+      onTick: _simulateFish,
       builder: (context, time) {
         return CustomPaint(
-          painter: ParticlePainter(bubbles, time),
+          painter: ParticlePainter(fish, time),
         );
       },
     );
   }
 
-  _simulateBubbles(Duration time) {
-    bubbles.forEach((particle) => particle.maintainRestart(time));
+  _simulateFish(Duration time) {
+    fish.forEach((particle) => particle.maintainRestart(time));
   }
 }
 
@@ -79,16 +79,16 @@ class ParticleModel {
 }
 
 class ParticlePainter extends CustomPainter {
-  List<ParticleModel> bubbles;
+  List<ParticleModel> fish;
   Duration time;
 
-  ParticlePainter(this.bubbles, this.time);
+  ParticlePainter(this.fish, this.time);
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = Colors.white.withAlpha(20);
 
-    bubbles.forEach((particle) {
+    fish.forEach((particle) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
