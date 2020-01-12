@@ -4,17 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class SineWaveAnimation extends StatelessWidget {
-  final double height;
   final double speed;
   final double offset;
 
-  SineWaveAnimation({this.height, this.speed, this.offset = 0.0});
+  SineWaveAnimation({this.speed, this.offset = 0.0});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return Container(
-        height: height,
         width: constraints.biggest.width,
         child: ControlledAnimation(
             playback: Playback.LOOP,
@@ -38,14 +36,9 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final white = Paint()..color = Colors.white.withAlpha(10);
-    // final white = Paint()..color = Colors.white
-     // ..strokeWidth = 1.5
-      //..style = PaintingStyle.stroke
-      //..strokeCap = StrokeCap.round;
+
     final path = Path();
 
-    final y1 = sin(value);
- 
     final y2 = sin(value + pi / 2);
     final y3 = sin(value + pi);
     final y4 = sin(value + (3 * pi) / 2);
@@ -53,19 +46,19 @@ class CurvePainter extends CustomPainter {
 
     final startPointY = size.height / 2;
     final controlPointY2 = size.height * (0.5 + 0.4 * y2);
-    final midPointY = size.height * (0.5 + 0.4 * y3);
+
     final controlPointY4 = size.height * (0.5 + 0.4 * y4);
 
-     final endPointY = size.height * (0.5 + 0.4 * y5);
+    final endPointY = size.height / 2;
 
     path.moveTo(size.width * 0, startPointY);
     //  print("size.width = ${size.width}");
-    //path.quadraticBezierTo(size.width * 0.5, controlPointY, size.width, endPointY);
 
-    path.cubicTo(size.width * 0.4, controlPointY2, size.width * 0.6, controlPointY4, size.width, startPointY);
-   path.lineTo(size.width, size.height);
+    path.cubicTo(size.width * 0.4, controlPointY2, size.width * 0.6,
+        controlPointY4, size.width, endPointY);
+    path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-   path.close();
+    path.close();
     canvas.drawPath(path, white);
   }
 

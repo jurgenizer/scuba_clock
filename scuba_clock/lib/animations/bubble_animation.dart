@@ -86,7 +86,7 @@ class ParticlePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.white.withAlpha(20);
+    final paint = Paint()..color = Colors.white.withAlpha(25);
 
     bubbles.forEach((particle) {
       var progress = particle.animationProgress.progress(time);

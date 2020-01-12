@@ -26,8 +26,6 @@ import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
 
-
-
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
 final radiansPerTick = radians(360 / 60);
@@ -152,16 +150,26 @@ class _ScubaClockState extends State<ScubaClock> {
 
     return Semantics.fromProperties(
       properties: SemanticsProperties(
-        label: 'Analog jelly clock with time $time',
+        label: 'Analog scuba-themed clock with time $time',
         value: time,
       ),
       child: Container(
         child: Stack(
           children: [
             Positioned.fill(child: BackgroundAnimation()),
-            Positioned.fill(child: Align(alignment: Alignment.bottomCenter,
-          child:  WaveAnimation(height: 30, speed: 1.0, offset: pi,),),),
-            Positioned.fill(child: SineWaveAnimation(height: 50, speed: 1.0)),
+            Positioned.fill(child: BubbleAnimation(40)),
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: WaveAnimation(
+                  height: 300,
+                  speed: 1.0,
+                  offset: pi,
+                ),
+              ),
+            ),
+
+            Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(40)),
             Positioned(
               left: 0,
@@ -173,42 +181,42 @@ class _ScubaClockState extends State<ScubaClock> {
             ),
 
             Positioned.fill(
-                child: DrawnMinuteDial(color: Colors.white24, size: 0.8)),
+                child: DrawnMinuteDial(color: Colors.white24, size: 0.73)),
 
             Positioned.fill(
                 left: 5.0,
                 top: 5.0,
-                right: 5,
+                right: 50,
                 bottom: 5,
                 child: FishAnimation(10)),
 
             Positioned.fill(
-                child: DrawnHourDial(color: Colors.white10, size: 0.46)),
+                child: DrawnHourDial(color: Colors.white10, size: 0.4)),
 
-            // New minute hand drawn with [Container] and child.
+            // New Minute hand drawn with [Container] and child.
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -130.0),
+                offset: Offset(0.0, -148.0),
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
-                    radius: 20,
+                    radius: 19,
                     avatarRingColor: Colors.lime[900],
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.minute}'),
               ),
             ),
 
-            // New hour hand drawn with [Container] and child.
+            // New Hour hand drawn with [Container] and child.
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -60),
+                offset: Offset(0.0, -80),
                 child: TimeCircleAvatar(
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
@@ -235,7 +243,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -180.0),
+                offset: Offset(0.0, -178.0),
                 child: Container(
                   width: 24,
                   height: 22,
@@ -253,7 +261,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 1) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -180.0),
+                offset: Offset(0.0, -178.0),
                 child: Container(
                   width: 20,
                   height: 20,
@@ -271,7 +279,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 2) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -180.0),
+                offset: Offset(0.0, -178.0),
                 child: Container(
                   width: 15,
                   height: 18,
@@ -289,7 +297,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 3) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -180.0),
+                offset: Offset(0.0, -178.0),
                 child: Container(
                   width: 15,
                   height: 18,
@@ -300,6 +308,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 ),
               ),
             ),
+              
           ],
         ),
       ),
