@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:simple_animations/simple_animations.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class FishAnimation extends StatefulWidget {
   final int numberOfFish;
 
@@ -46,7 +48,7 @@ class _FishAnimationState extends State<FishAnimation> {
 
 class ParticleModel {
   Animatable tween;
-  double size;
+  //double size;
   AnimationProgress animationProgress;
   Random random;
 
@@ -55,8 +57,8 @@ class ParticleModel {
   }
 
   restart({Duration time = Duration.zero}) {
-    final startPosition = Offset(2.2, -0.2 + 1.4 * random.nextDouble());
-    final endPosition = Offset(-0.2, -0.2 + 1.3 * random.nextDouble());
+    final startPosition = Offset(-0.2, -0.2 + 1.4 * random.nextDouble());
+    final endPosition = Offset(2.2, -0.2 + 1.3 * random.nextDouble());
     final duration = Duration(milliseconds: 16000 + random.nextInt(16000));
 
     tween = MultiTrackTween([
@@ -68,7 +70,7 @@ class ParticleModel {
           curve: Curves.easeIn),
     ]);
     animationProgress = AnimationProgress(duration: duration, startTime: time);
-    size = 0.02 + random.nextDouble() * 0.03;
+  
   }
 
   maintainRestart(Duration time) {
@@ -81,19 +83,43 @@ class ParticleModel {
 class ParticlePainter extends CustomPainter {
   List<ParticleModel> fish;
   Duration time;
+  
 
   ParticlePainter(this.fish, this.time);
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.teal[700];
+
+
+    
 
     fish.forEach((particle) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
-      canvas.drawCircle(position, size.width * 0.3 * particle.size, paint);
+     // canvas.drawCircle(position, size.width * 0.3 * particle.size, paint);
+
+      final fishCodePoint = FontAwesomeIcons.fish.codePoint;
+      // print('The codePoint is $fishCodePoint');
+      final fishFontPackage = FontAwesomeIcons.fish.fontPackage;
+      // print('The fontPackage is $fishFontPackage');
+      final fishFontFamily = FontAwesomeIcons.fish.fontFamily;
+      // print('The fontFamily is $fishFontFamily');
+
+      TextPainter textPainter = TextPainter(textDirection: TextDirection.ltr);
+      textPainter.text = TextSpan(
+          text: String.fromCharCode(fishCodePoint),
+          style: TextStyle(
+            color: Colors.yellow[300],
+              fontSize: 30,
+              fontFamily: fishFontFamily,
+              package: fishFontPackage));
+      textPainter.layout();
+
+      textPainter.layout();
+
+      textPainter.paint(canvas, position);
     });
   }
 

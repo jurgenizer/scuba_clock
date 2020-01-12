@@ -24,6 +24,8 @@ import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
 final radiansPerTick = radians(360 / 60);
@@ -172,20 +174,25 @@ class _ScubaClockState extends State<ScubaClock> {
             Positioned.fill(child: BackgroundAnimation()),
 
             Positioned.fill(child: BubbleAnimation(40)),
-            Positioned.fill(child: FishAnimation(10)),
-            
-          Positioned.fill(
+            Positioned.fill(
+                left: 5.0,
+                top: 5.0,
+                right: 5,
+                bottom: 5,
+                child: FishAnimation(10)),
+
+            Positioned.fill(
                 child: DrawnMinuteDial(color: Colors.white24, size: 0.8)),
 
             Positioned.fill(
-                child: DrawnHourDial(color: Colors.white10, size: 0.46)),
+                left: 5.0,
+                top: 5.0,
+                right: 5,
+                bottom: 5,
+                child: FishAnimation(10)),
 
             Positioned.fill(
-              child: SineWaveAnimation(
-                height: 10,
-                speed: 1.0,
-              ),
-            ),
+                child: DrawnHourDial(color: Colors.white10, size: 0.46)),
 
 /*
             Positioned.fill(
@@ -202,7 +209,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 20,
-                    avatarRingColor: Colors.lime[700],
+                    avatarRingColor: Colors.lime[900],
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.minute}'),
               ),
@@ -220,7 +227,7 @@ class _ScubaClockState extends State<ScubaClock> {
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
                     radius: 24,
-                    avatarRingColor: Colors.yellow[700],
+                    avatarRingColor: Colors.amber,
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.hour}'),
               ),
