@@ -10,13 +10,13 @@ import 'package:flutter/semantics.dart';
 
 import 'package:intl/intl.dart';
 
-
 import 'package:vector_math/vector_math_64.dart' show radians;
 
 import 'animations/background_animation.dart';
 import 'animations/container_hand_animation.dart';
 import 'animations/dot_animation.dart';
-import 'animations/particle_animation.dart';
+import 'animations/bubble_animation.dart';
+import 'animations/fish_animation.dart';
 import 'animations/sine_wave_animation.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
@@ -24,7 +24,7 @@ import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
 
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
@@ -92,17 +92,15 @@ class _ScubaClockState extends State<ScubaClock> {
   }
 
   void _getInitialTime() {
-    
-      // This is used to make sure the animated second dots [ContainerHandAnimation()],
-      // start at the correct angle, as the default container or drawn second hand would.
+    // This is used to make sure the animated second dots [ContainerHandAnimation()],
+    // start at the correct angle, as the default container or drawn second hand would.
 
-      _initialTime = DateTime.now();
-      print('The initial time is: $_initialTime');
-      _initialSecond = _initialTime.second;
-      //_initialSecond = 0; // test value
-      // What is the initial second?
-      print('The initial second is: $_initialSecond');
-  
+    _initialTime = DateTime.now();
+    print('The initial time is: $_initialTime');
+    _initialSecond = _initialTime.second;
+    //_initialSecond = 0; // test value
+    // What is the initial second?
+    print('The initial second is: $_initialSecond');
   }
 
   void _updateTime() {
@@ -131,7 +129,7 @@ class _ScubaClockState extends State<ScubaClock> {
     //    [DigitalClock].
 
     /// Get the size of the screen
-    // var screenSize = MediaQuery.of(context).size;
+    var screenSize = MediaQuery.of(context).size;
 
     // What is the height (shortest side) of the screen?
     // print('Height (shortest side) of the screen: ${screenSize.shortestSide}');
@@ -175,19 +173,26 @@ class _ScubaClockState extends State<ScubaClock> {
           children: [
             Positioned.fill(child: BackgroundAnimation()),
 
+            Positioned.fill(child: BubbleAnimation(40)),
+            Positioned.fill(
+                left: 5.0,
+                top: 5.0,
+                right: 5,
+                bottom: 5,
+                child: FishAnimation(10)),
+
+            Positioned.fill(
+                child: DrawnMinuteDial(color: Colors.white24, size: 0.8)),
+
+            Positioned.fill(
+                left: 5.0,
+                top: 5.0,
+                right: 5,
+                bottom: 5,
+                child: FishAnimation(10)),
+
             Positioned.fill(
                 child: DrawnHourDial(color: Colors.white10, size: 0.46)),
-
-            DrawnMinuteDial(color: Colors.white24, size: 0.8),
-
-            Positioned.fill(child: ParticleAnimation(40)),
-
-            Positioned.fill(
-              child: SineWaveAnimation(
-                height: 10,
-                speed: 1.0,
-              ),
-            ),
 
 /*
             Positioned.fill(
@@ -204,7 +209,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 20,
-                    avatarRingColor: Colors.lime[700],
+                    avatarRingColor: Colors.lime[900],
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.minute}'),
               ),
@@ -222,7 +227,7 @@ class _ScubaClockState extends State<ScubaClock> {
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
                     radius: 24,
-                    avatarRingColor: Colors.yellow[700],
+                    avatarRingColor: Colors.amber,
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.hour}'),
               ),

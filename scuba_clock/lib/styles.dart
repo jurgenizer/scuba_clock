@@ -49,13 +49,5 @@ abstract class Styles {
 
   static const shadowColor = Color(0xa0000000);
 
-  static const shadowGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [transparentColor, shadowColor],
-  );
 
-  static const ColorFilter desaturatedColorFilter =
-      // 222222 is a random color that has low color saturation.
-      ColorFilter.mode(Color(0xFF222222), BlendMode.saturation);
 }
