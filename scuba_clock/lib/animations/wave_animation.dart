@@ -18,7 +18,7 @@ class WaveAnimation extends StatelessWidget {
         width: constraints.biggest.width,
         child: ControlledAnimation(
             playback: Playback.LOOP,
-            duration: Duration(milliseconds: (5000 / speed).round()),
+            duration: Duration(milliseconds: (60000 / speed).round()),
             tween: Tween(begin: 0.0, end: 2 * pi),
             builder: (context, value) {
               return CustomPaint(
@@ -37,7 +37,7 @@ class CurvePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final white = Paint()..color = Colors.white.withAlpha(10);
+    final white = Paint()..color = Colors.white.withAlpha(7);
     final path = Path();
 
     final y1 = sin(value);

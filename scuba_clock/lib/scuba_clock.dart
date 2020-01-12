@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,14 @@ import 'animations/dot_animation.dart';
 import 'animations/bubble_animation.dart';
 import 'animations/fish_animation.dart';
 import 'animations/sine_wave_animation.dart';
+import 'animations/wave_animation.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
 import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
@@ -129,24 +131,10 @@ class _ScubaClockState extends State<ScubaClock> {
     //    [DigitalClock].
 
     /// Get the size of the screen
-    var screenSize = MediaQuery.of(context).size;
+    // var screenSize = MediaQuery.of(context).size;
 
     // What is the height (shortest side) of the screen?
     // print('Height (shortest side) of the screen: ${screenSize.shortestSide}');
-
-    final customTheme = Theme.of(context).brightness == Brightness.light
-        ? Theme.of(context).copyWith(
-            primaryColor: Styles.sapphireBlue,
-            highlightColor: Styles.middleYellowRed,
-            accentColor: Styles.heliotropePink,
-            backgroundColor: Styles.lightBackground,
-          )
-        : Theme.of(context).copyWith(
-            primaryColor: Styles.darkBlue,
-            highlightColor: Styles.deepKoamaru,
-            accentColor: Styles.timberwolfWhite,
-            backgroundColor: Styles.darkBackground,
-          );
 
     final time = DateFormat.Hms().format(DateTime.now());
     final weatherInfo = DefaultTextStyle(
@@ -168,18 +156,21 @@ class _ScubaClockState extends State<ScubaClock> {
         value: time,
       ),
       child: Container(
-        color: customTheme.backgroundColor,
         child: Stack(
           children: [
             Positioned.fill(child: BackgroundAnimation()),
-
+            Positioned.fill(child: Align(alignment: Alignment.bottomCenter,
+          child:  WaveAnimation(height: 30, speed: 1.0, offset: pi,),),),
+            Positioned.fill(child: SineWaveAnimation(height: 50, speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(40)),
-            Positioned.fill(
-                left: 5.0,
-                top: 5.0,
-                right: 5,
-                bottom: 5,
-                child: FishAnimation(10)),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: weatherInfo,
+              ),
+            ),
 
             Positioned.fill(
                 child: DrawnMinuteDial(color: Colors.white24, size: 0.8)),
@@ -194,11 +185,6 @@ class _ScubaClockState extends State<ScubaClock> {
             Positioned.fill(
                 child: DrawnHourDial(color: Colors.white10, size: 0.46)),
 
-/*
-            Positioned.fill(
-              child: NewWave(size: 0.9),
-            ),
-            */
             // New minute hand drawn with [Container] and child.
             ContainerHand(
               color: Colors.transparent,
@@ -312,15 +298,6 @@ class _ScubaClockState extends State<ScubaClock> {
                     speed: 1.0,
                   ),
                 ),
-              ),
-            ),
-
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: weatherInfo,
               ),
             ),
           ],
