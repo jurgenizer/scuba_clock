@@ -215,7 +215,7 @@ class _ScubaClockState extends State<ScubaClock> {
             // New round minute hand drawn with [Container] and child.
             ContainerHand(
               color: Colors.transparent,
-              size: 1.0,left
+              size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
                 offset: Offset(0.0, -148.0),
