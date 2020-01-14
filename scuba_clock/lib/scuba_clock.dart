@@ -20,6 +20,7 @@ import 'animations/bubble_animation.dart';
 import 'animations/fish_animation.dart';
 import 'animations/sine_wave_animation.dart';
 import 'animations/wave_animation.dart';
+import 'animations/submarine_animation.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
 import 'drawn_minute_dial.dart';
@@ -169,8 +170,12 @@ class _ScubaClockState extends State<ScubaClock> {
               ),
             ),
 
+
+            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation()),
+
             Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(40)),
+
             Positioned(
               left: 0,
               bottom: 0,
@@ -181,35 +186,67 @@ class _ScubaClockState extends State<ScubaClock> {
             ),
 
             Positioned.fill(
-                child: DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
+                child:
+                    DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
 
             Positioned.fill(
-                left: 5.0,
-                top: 5.0,
-                right: 50,
-                bottom: 5,
-                child: FishAnimation(10)),
+                         child: FishAnimation(10)),
 
             Positioned.fill(
                 child: DrawnHourDial(color: Styles.hourDialWhite, size: 1.0)),
 
-            // New Minute hand drawn with [Container] and child.
+            // Linear minute hand drawn with [Container].
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
                 offset: Offset(0.0, -148.0),
+                child: Container(
+                  width: 8,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: Colors.lime,
+                  ),
+                ),
+              ),
+            ),
+
+            // New round minute hand drawn with [Container] and child.
+            ContainerHand(
+              color: Colors.transparent,
+              size: 1.0,left
+              angleRadians: _now.minute * radiansPerTick,
+              child: Transform.translate(
+                offset: Offset(0.0, -148.0),
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 19,
-                    avatarRingColor: Colors.lime[900],
+                    avatarRingColor: Colors.lime,
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.minute}'),
               ),
             ),
 
-            // New Hour hand drawn with [Container] and child.
+            // Linear hour hand drawn with [Container].
+            ContainerHand(
+              color: Colors.transparent,
+              size: 1.0,
+              angleRadians: _now.hour * radiansPerHour +
+                  (_now.minute / 60) * radiansPerHour,
+              child: Transform.translate(
+                offset: Offset(0.0, -80.0),
+                child: Container(
+                  width: 24,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                  ),
+                ),
+              ),
+            ),
+
+            // New round hour hand drawn with [Container] and child.
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
@@ -308,7 +345,6 @@ class _ScubaClockState extends State<ScubaClock> {
                 ),
               ),
             ),
-              
           ],
         ),
       ),
