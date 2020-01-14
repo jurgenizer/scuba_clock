@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class Styles {
@@ -14,13 +15,20 @@ abstract class Styles {
   /// light theme colors
   static const lightBackground = Color(0xff272083);
 
-  static const heliotropePink = Color(0xffd775ec);
-
   static const azureCyan = Color(0xff5399b5);
 
   static const tealBlue = Color(0xff35829f);
 
   static const seaGreen = Color(0xff23bba6);
+
+  // items
+
+  static const hourDialWhite = Colors.white12;
+
+  static const minuteDialWhite = Colors.white24;
+
+
+  static const secondDots = Color(0xff23bba6);
 
   /// dark theme colors
 

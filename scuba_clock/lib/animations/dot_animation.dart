@@ -37,7 +37,7 @@ class CurvePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final timberwolfWhitePaint = Paint()..color = Styles.timberwolfWhite;
+    final dotPaint = Paint()..color = Styles.secondDots;
 
     final y1 = sin(value);
 
@@ -45,7 +45,7 @@ class CurvePainter extends CustomPainter {
 
     final controlPosition = Offset(size.width / 2, controlPointY);
 
-    canvas.drawCircle(controlPosition, size.width * 0.2, timberwolfWhitePaint);
+    canvas.drawCircle(controlPosition, size.width * 0.2, dotPaint);
   }
 
   @override

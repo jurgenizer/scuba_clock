@@ -181,7 +181,7 @@ class _ScubaClockState extends State<ScubaClock> {
             ),
 
             Positioned.fill(
-                child: DrawnMinuteDial(color: Colors.white24, size: 0.73)),
+                child: DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
 
             Positioned.fill(
                 left: 5.0,
@@ -191,7 +191,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 child: FishAnimation(10)),
 
             Positioned.fill(
-                child: DrawnHourDial(color: Colors.white10, size: 0.4)),
+                child: DrawnHourDial(color: Styles.hourDialWhite, size: 1.0)),
 
             // New Minute hand drawn with [Container] and child.
             ContainerHand(
