@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class SubmarineAnimation extends StatelessWidget {
+
+final int remainderIsZero;
+
+  //var child;
+
+
+SubmarineAnimation({this.remainderIsZero});
+
+
   static final boxDecoration = BoxDecoration(
       color: Colors.orange,
       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -15,7 +24,16 @@ class SubmarineAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ControlledAnimation(
+
+Widget myChild;
+
+print('The remainder is: $remainderIsZero');
+
+
+if (remainderIsZero.remainder(15) == 0) {
+    
+
+   myChild =  ControlledAnimation(
       duration: Duration(milliseconds: 400),
       tween: Tween(begin: 0.0, end: 80.0),
       builder: (context, height) {
@@ -28,49 +46,17 @@ class SubmarineAnimation extends StatelessWidget {
               decoration: boxDecoration,
               width: width,
               height: height,
-              child: isEnoughRoomForTypewriter(width)
-                  ? TypewriterText("Hello Flutter")
-                  : Container(),
+              child: Container(),
             );
           },
         );
       },
     );
-  }
+} else {myChild = Container();}
 
-  isEnoughRoomForTypewriter(width) => width > 20;
+
+ return new Container(child: myChild);
 }
-
-class TypewriterText extends StatelessWidget {
-  static const TEXT_STYLE =
-      TextStyle(letterSpacing: 5, fontSize: 20, fontWeight: FontWeight.w300);
-
-  final String text;
-  TypewriterText(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return ControlledAnimation(
-        duration: Duration(milliseconds: 800),
-        delay: Duration(milliseconds: 800),
-        tween: IntTween(begin: 0, end: text.length),
-        builder: (context, textLength) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(text.substring(0, textLength), style: TEXT_STYLE),
-              ControlledAnimation(
-                playback: Playback.LOOP,
-                duration: Duration(milliseconds: 600),
-                tween: IntTween(begin: 0, end: 1),
-                builder: (context, oneOrZero) {
-                  return Opacity(
-                      opacity: oneOrZero == 1 ? 1.0 : 0.0,
-                      child: Text("_", style: TEXT_STYLE));
-                },
-              )
-            ],
-          );
-        });
-  }
 }
+//;
+//if (remainderIsZero.remainder(15) == 0){

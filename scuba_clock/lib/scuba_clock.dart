@@ -92,6 +92,8 @@ class _ScubaClockState extends State<ScubaClock> {
     });
   }
 
+ 
+
   void _getInitialTime() {
     // This is used to make sure the animated second dots [ContainerHandAnimation()],
     // start at the correct angle, as the default container or drawn second hand would.
@@ -170,8 +172,7 @@ class _ScubaClockState extends State<ScubaClock> {
               ),
             ),
 
-
-            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation()),
+            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation(remainderIsZero: _now.minute)),
 
             Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(40)),
@@ -189,8 +190,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 child:
                     DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
 
-            Positioned.fill(
-                         child: FishAnimation(10)),
+            Positioned.fill(child: FishAnimation(10)),
 
             Positioned.fill(
                 child: DrawnHourDial(color: Styles.hourDialWhite, size: 1.0)),
