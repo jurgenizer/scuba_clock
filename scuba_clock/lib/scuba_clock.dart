@@ -160,7 +160,7 @@ class _ScubaClockState extends State<ScubaClock> {
         child: Stack(
           children: [
             Positioned.fill(child: BackgroundAnimation()),
-            Positioned.fill(child: BubbleAnimation(40)),
+            Positioned.fill(child: BubbleAnimation(38)),
             Positioned.fill(
               child: Align(
                 alignment: Alignment.bottomCenter,

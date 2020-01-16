@@ -25,24 +25,19 @@ class SubmarineAnimation extends StatelessWidget {
 
     print('The remainder is: $remainderValue');
 
-    if (remainderValue.remainder(15) == 0) {
+    if (remainderValue.remainder(2) == 0) {
       myChild = ControlledAnimation(
         duration: Duration(milliseconds: 4000),
         tween: Tween(begin: 0.0, end: 80.0),
         builder: (context, height) {
-          return ControlledAnimation(
-            duration: Duration(milliseconds: 1200),
-            delay: Duration(milliseconds: 500),
-            tween: Tween(begin: 2.0, end: 300.0),
-            builder: (context, width) {
+         
               return Container(
                 decoration: boxDecoration,
-                width: width,
+                width: 80.0,
                 height: height,
                 child: Container(),
               );
-            },
-          );
+          
         },
       );
     } else {
