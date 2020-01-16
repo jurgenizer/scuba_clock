@@ -46,7 +46,7 @@ class _DialPainter extends CustomPainter {
     var tickMarkLength;
     final smallAngle = 2 * pi / 60;
     final largeAngle = 2 * pi / 12;
-    final radius = ((size.shortestSide / 2) * dialSize) -22;
+    final radius = ((size.shortestSide / 2) * dialSize) -42;
     final middleX = (max(size.width, size.height) / 2);
     final middleY = (min(size.width, size.height) / 2);
     canvas.save();

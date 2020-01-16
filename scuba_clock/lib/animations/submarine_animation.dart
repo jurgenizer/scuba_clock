@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class SubmarineAnimation extends StatelessWidget {
-
-final int remainderIsZero;
+  final int remainderValue;
 
   //var child;
 
-
-SubmarineAnimation({this.remainderIsZero});
-
+  SubmarineAnimation({this.remainderValue});
 
   static final boxDecoration = BoxDecoration(
       color: Colors.orange,
@@ -24,39 +21,35 @@ SubmarineAnimation({this.remainderIsZero});
 
   @override
   Widget build(BuildContext context) {
+    Widget myChild;
 
-Widget myChild;
+    print('The remainder is: $remainderValue');
 
-print('The remainder is: $remainderIsZero');
+    if (remainderValue.remainder(15) == 0) {
+      myChild = ControlledAnimation(
+        duration: Duration(milliseconds: 4000),
+        tween: Tween(begin: 0.0, end: 80.0),
+        builder: (context, height) {
+          return ControlledAnimation(
+            duration: Duration(milliseconds: 1200),
+            delay: Duration(milliseconds: 500),
+            tween: Tween(begin: 2.0, end: 300.0),
+            builder: (context, width) {
+              return Container(
+                decoration: boxDecoration,
+                width: width,
+                height: height,
+                child: Container(),
+              );
+            },
+          );
+        },
+      );
+    } else {
+      myChild = Container();
+    }
 
-
-if (remainderIsZero.remainder(15) == 0) {
-    
-
-   myChild =  ControlledAnimation(
-      duration: Duration(milliseconds: 400),
-      tween: Tween(begin: 0.0, end: 80.0),
-      builder: (context, height) {
-        return ControlledAnimation(
-          duration: Duration(milliseconds: 1200),
-          delay: Duration(milliseconds: 500),
-          tween: Tween(begin: 2.0, end: 300.0),
-          builder: (context, width) {
-            return Container(
-              decoration: boxDecoration,
-              width: width,
-              height: height,
-              child: Container(),
-            );
-          },
-        );
-      },
-    );
-} else {myChild = Container();}
-
-
- return new Container(child: myChild);
+    return new Container(child: myChild);
+  }
 }
-}
-//;
-//if (remainderIsZero.remainder(15) == 0){
+

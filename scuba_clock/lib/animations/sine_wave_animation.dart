@@ -39,23 +39,22 @@ class CurvePainter extends CustomPainter {
 
     final path = Path();
 
-    final y2 = sin(value + pi / 2);
-    final y3 = sin(value + pi);
-    final y4 = sin(value + (3 * pi) / 2);
-    final y5 = sin(value + 2 * pi);
-
+    final y1 = sin(value + pi / 2);
+    
+    final y2 = sin(value + (3 * pi) / 2);
+    
     final startPointY = size.height / 2;
-    final controlPointY2 = size.height * (0.5 + 0.4 * y2);
+    final controlPointY1 = size.height * (0.5 + 0.4 * y1);
 
-    final controlPointY4 = size.height * (0.5 + 0.4 * y4);
+    final controlPointY2 = size.height * (0.5 + 0.4 * y2);
 
     final endPointY = size.height / 2;
 
     path.moveTo(size.width * 0, startPointY);
     //  print("size.width = ${size.width}");
 
-    path.cubicTo(size.width * 0.4, controlPointY2, size.width * 0.6,
-        controlPointY4, size.width, endPointY);
+    path.cubicTo(size.width * 0.4, controlPointY1, size.width * 0.6,
+        controlPointY2, size.width, endPointY);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     path.close();

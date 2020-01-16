@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../styles.dart';
 
 class FishAnimation extends StatefulWidget {
   final int numberOfFish;
@@ -70,7 +71,6 @@ class ParticleModel {
           curve: Curves.easeIn),
     ]);
     animationProgress = AnimationProgress(duration: duration, startTime: time);
-  
   }
 
   maintainRestart(Duration time) {
@@ -83,22 +83,17 @@ class ParticleModel {
 class ParticlePainter extends CustomPainter {
   List<ParticleModel> fish;
   Duration time;
-  
 
   ParticlePainter(this.fish, this.time);
 
   @override
   void paint(Canvas canvas, Size size) {
-
-
-    
-
     fish.forEach((particle) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
-     // canvas.drawCircle(position, size.width * 0.3 * particle.size, paint);
+      
 
       final fishCodePoint = FontAwesomeIcons.fish.codePoint;
       // print('The codePoint is $fishCodePoint');
@@ -111,8 +106,8 @@ class ParticlePainter extends CustomPainter {
       textPainter.text = TextSpan(
           text: String.fromCharCode(fishCodePoint),
           style: TextStyle(
-            color: Colors.yellow[300],
-              fontSize: 30,
+              color: Styles.tealBlue,
+              fontSize: 26,
               fontFamily: fishFontFamily,
               package: fishFontPackage));
       textPainter.layout();

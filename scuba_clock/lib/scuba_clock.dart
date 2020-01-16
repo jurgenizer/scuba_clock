@@ -165,17 +165,17 @@ class _ScubaClockState extends State<ScubaClock> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: WaveAnimation(
-                  height: 300,
+                  height: 320,
                   speed: 1.0,
                   offset: pi,
                 ),
               ),
             ),
 
-            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation(remainderIsZero: _now.minute)),
+            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation(remainderValue: _now.minute)),
 
             Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
-            Positioned.fill(child: BubbleAnimation(40)),
+            Positioned.fill(child: BubbleAnimation(38)),
 
             Positioned(
               left: 0,
@@ -201,7 +201,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -148.0),
+                offset: Offset(0.0, -110.0),
                 child: Container(
                   width: 8,
                   height: 48,
@@ -218,7 +218,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -148.0),
+                offset: Offset(0.0, -110.0),
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 19,
@@ -235,7 +235,7 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -80.0),
+                offset: Offset(0.0, -65.0),
                 child: Container(
                   width: 24,
                   height: 60,
@@ -253,7 +253,7 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -80),
+                offset: Offset(0.0, -65),
                 child: TimeCircleAvatar(
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
@@ -280,7 +280,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -178.0),
+                offset: Offset(0.0, -170.0),
                 child: Container(
                   width: 24,
                   height: 22,
@@ -298,7 +298,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 1) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -178.0),
+                offset: Offset(0.0, -170.0),
                 child: Container(
                   width: 20,
                   height: 20,
@@ -316,7 +316,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 2) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -178.0),
+                offset: Offset(0.0, -170.0),
                 child: Container(
                   width: 15,
                   height: 18,
@@ -334,7 +334,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: (_initialSecond - 3) * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -178.0),
+                offset: Offset(0.0, -170.0),
                 child: Container(
                   width: 15,
                   height: 18,
