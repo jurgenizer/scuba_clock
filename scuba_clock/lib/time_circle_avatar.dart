@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 class TimeCircleAvatar extends StatelessWidget {
   final double angleRadians;
   final double radius;
+  final double fontScaleFactor;
   final Color avatarRingColor;
   final Color avatarColor;
   final String handTime;
@@ -11,11 +12,13 @@ class TimeCircleAvatar extends StatelessWidget {
   const TimeCircleAvatar({
     @required this.angleRadians,
     @required this.radius,
+     @required this.fontScaleFactor,
     @required this.avatarRingColor,
     @required this.avatarColor,
     @required this.handTime,
   })  : assert(angleRadians != null),
         assert(radius != null),
+        assert(fontScaleFactor != null),
         assert(avatarRingColor != null),
         assert(avatarColor != null),
         assert(handTime != null);
@@ -32,7 +35,7 @@ class TimeCircleAvatar extends StatelessWidget {
         radius: radius - 4,
     backgroundColor: avatarColor,
     
-   child: Text(handTime),
+   child: Text(handTime, textScaleFactor: fontScaleFactor,),
   ),
   ),
 

@@ -17,7 +17,7 @@ class SubmarineAnimation extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
 
     final startPointX = screenSize.longestSide;
-    final startPointY = screenSize.shortestSide / 2 - 100;
+    final startPointY = screenSize.shortestSide / 2 - 120;
     print('The height of sub is: $startPointY');
 
     final endPointX = screenSize.longestSide - screenSize.longestSide - 150;

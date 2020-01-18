@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:simple_animations/simple_animations.dart';
 
+/// Thank you to Felix Blaschke for the simple_animations package
+
 class BubbleAnimation extends StatefulWidget {
   final int numberOfBubbles;
 

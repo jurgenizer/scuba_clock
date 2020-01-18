@@ -12,12 +12,15 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  /// light theme colors
+
+  /// light colors
   static const lightBackground = Color(0xff272083);
 
   static const azureCyan = Color(0xff5399b5);
 
   static const tealBlue = Color(0xff35829f);
+
+    static const tealBlueFish = Color(0xff35829f);
 
   static const seaGreen = Color(0xff23bba6);
 
@@ -30,7 +33,7 @@ abstract class Styles {
 
   static const secondDots = Color(0xff23bba6);
 
-  /// dark theme colors
+  /// darker colors
 
   static const darkBackground = Color(0xff272083);
 
@@ -51,11 +54,7 @@ abstract class Styles {
 
   static const lightBrown = Color(0xffb0661b);
 
-  /// random colors, transparent etc.
 
-  static const transparentColor = Color(0x00000000);
-
-  static const shadowColor = Color(0xa0000000);
 
 
 }

@@ -27,6 +27,9 @@ import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
 
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
 final radiansPerTick = radians(360 / 60);
@@ -36,9 +39,9 @@ final radiansPerHour = radians(360 / 12);
 
 /// A scuba-themed analog clock.
 ///
-/// I was playing when I invented the aqualung. 
+/// I was playing when I invented the aqualung.
 /// I think play is the most serious thing in the world. - Jacques Yves Cousteau
-/// 
+///
 class ScubaClock extends StatefulWidget {
   const ScubaClock(this.model);
 
@@ -94,8 +97,6 @@ class _ScubaClockState extends State<ScubaClock> {
     });
   }
 
- 
-
   void _getInitialTime() {
     // This is used to make sure the animated second dots [ContainerHandAnimation()],
     // start at the correct angle, as the default container or drawn second hand would.
@@ -139,6 +140,39 @@ class _ScubaClockState extends State<ScubaClock> {
     // What is the height (shortest side) of the screen?
     // print('Height (shortest side) of the screen: ${screenSize.shortestSide}');
 
+
+     final thingInfo = Container(
+   
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+     
+              
+                Icon(
+                  Icons.expand_more,
+                  size: 50.0,
+                  color: Colors.grey,
+                ),
+                Icon(
+                  Icons.expand_more,
+                  size: 50.0,
+                  color: Colors.grey,
+                ),
+             
+                  Icon(FontAwesomeIcons.anchor, size: 50, color: Colors.grey),
+           
+                Chip(
+  avatar: CircleAvatar(
+    backgroundColor: Colors.grey.shade800,
+    child: Text('AB'),
+  ),
+  label: Text('Saturday'),
+)
+        ],
+      ),
+    );
+
+
     final time = DateFormat.Hms().format(DateTime.now());
     final weatherInfo = DefaultTextStyle(
       style: Styles.weatherInfoText,
@@ -163,24 +197,35 @@ class _ScubaClockState extends State<ScubaClock> {
           children: [
             Positioned.fill(child: BackgroundAnimation()),
             Positioned.fill(child: BubbleAnimation(38)),
+       
             Positioned.fill(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: WaveAnimation(
-                  height: 320,
+                  height: 300,
                   speed: 1.0,
                   offset: pi,
                 ),
               ),
             ),
-            
+     
             SubmarineAnimation(remainderValue: _now.minute),
-        
 
-            Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
+           Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(38)),
 
-          
+            ////
+
+  Positioned(
+            right: 0,
+            top: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(1),
+                child: thingInfo,
+              ),
+            ),
+
+////
 
             Positioned.fill(
                 child:
@@ -203,12 +248,13 @@ class _ScubaClockState extends State<ScubaClock> {
                   height: 48,
                   decoration: BoxDecoration(
                     color: Colors.lime,
+                    borderRadius: BorderRadius.all(Radius.circular(4)),
                   ),
                 ),
               ),
             ),
 
-            // New round minute hand drawn with [Container] and child.
+            // New round minute hand drawn with [Container] and TimeCircleAvatar child.
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
@@ -218,6 +264,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 19,
+                    fontScaleFactor: 1.0,
                     avatarRingColor: Colors.lime,
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.minute}'),
@@ -231,18 +278,19 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -45.0),
+                offset: Offset(0.0, -25.0),
                 child: Container(
                   width: 24,
                   height: 60,
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.amber,
                   ),
                 ),
               ),
             ),
 
-            // New round hour hand drawn with [Container] and child.
+            // New round hour hand drawn with [Container] and TimeCircleAvatar child.
             ContainerHand(
               color: Colors.transparent,
               size: 1.0,
@@ -254,6 +302,7 @@ class _ScubaClockState extends State<ScubaClock> {
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
                     radius: 24,
+                    fontScaleFactor: 1.25,
                     avatarRingColor: Colors.amber,
                     avatarColor: Colors.blueGrey[800],
                     handTime: '${_now.hour}'),
@@ -341,7 +390,7 @@ class _ScubaClockState extends State<ScubaClock> {
                 ),
               ),
             ),
-              Positioned(
+            Positioned(
               left: 0,
               bottom: 0,
               child: Padding(

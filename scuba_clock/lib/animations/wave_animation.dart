@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+/// Thank you to Felix Blaschke for the simple_animations package
+
 class WaveAnimation extends StatelessWidget {
   final double height;
   final double speed;
@@ -44,9 +46,9 @@ class CurvePainter extends CustomPainter {
     final y2 = sin(value + pi / 2);
     final y3 = sin(value + pi);
 
-    final startPointY = size.height * (0.5 + 0.3 * y1);
-    final controlPointY = size.height * (0.5 + 0.3 * y2);
-    final endPointY = size.height * (0.5 + 0.3 * y3);
+    final startPointY = size.height * (0.4 + 0.3 * y1);
+    final controlPointY = size.height * (0.4 + 0.3 * y2);
+    final endPointY = size.height * (0.4 + 0.3 * y3);
 
     path.moveTo(size.width * 0, startPointY);
     path.quadraticBezierTo(

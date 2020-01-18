@@ -105,7 +105,7 @@ class ParticlePainter extends CustomPainter {
       textPainter.text = TextSpan(
           text: String.fromCharCode(fishCodePoint),
           style: TextStyle(
-              color: Styles.tealBlue,
+              color: Styles.tealBlueFish,
               fontSize: 26,
               fontFamily: fishFontFamily,
               package: fishFontPackage));
