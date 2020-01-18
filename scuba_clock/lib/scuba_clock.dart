@@ -36,7 +36,9 @@ final radiansPerHour = radians(360 / 12);
 
 /// A scuba-themed analog clock.
 ///
-/// You can do better than this!
+/// I was playing when I invented the aqualung. 
+/// I think play is the most serious thing in the world. - Jacques Yves Cousteau
+/// 
 class ScubaClock extends StatefulWidget {
   const ScubaClock(this.model);
 
