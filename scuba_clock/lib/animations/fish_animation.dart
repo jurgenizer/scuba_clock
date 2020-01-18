@@ -93,7 +93,6 @@ class ParticlePainter extends CustomPainter {
       final animation = particle.tween.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
-      
 
       final fishCodePoint = FontAwesomeIcons.fish.codePoint;
       // print('The codePoint is $fishCodePoint');
@@ -112,7 +111,7 @@ class ParticlePainter extends CustomPainter {
               package: fishFontPackage));
       textPainter.layout();
 
-      textPainter.layout();
+     // textPainter.layout();
 
       textPainter.paint(canvas, position);
     });

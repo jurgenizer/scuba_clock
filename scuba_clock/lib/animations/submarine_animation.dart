@@ -1,43 +1,52 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class SubmarineAnimation extends StatelessWidget {
   final int remainderValue;
+  final Random random;
 
-  //var child;
-
-  SubmarineAnimation({this.remainderValue});
-
-  static final boxDecoration = BoxDecoration(
-      color: Colors.orange,
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      boxShadow: [
-        BoxShadow(
-            color: Colors.black.withAlpha(60),
-            blurRadius: 5,
-            offset: Offset(0, 8),
-            spreadRadius: 2)
-      ]);
+  SubmarineAnimation({this.remainderValue, this.random});
 
   @override
   Widget build(BuildContext context) {
     Widget myChild;
 
+    /// Get the size of the screen
+    var screenSize = MediaQuery.of(context).size;
+
+    final startPointX = screenSize.longestSide;
+    final startPointY = screenSize.shortestSide / 2 - 100;
+    print('The height of sub is: $startPointY');
+
+    final endPointX = screenSize.longestSide - screenSize.longestSide - 150;
+    final endPointY = screenSize.shortestSide / 2 - 100;
+
+    final startPosition = Offset(startPointX, startPointY);
+    final endPosition = Offset(endPointX, endPointY);
+    final duration = Duration(milliseconds: 10000);
+
     print('The remainder is: $remainderValue');
 
     if (remainderValue.remainder(2) == 0) {
+      var tween = MultiTrackTween([
+        Track("x").add(
+            duration, Tween(begin: startPosition.dx, end: endPosition.dx),
+            curve: Curves.linear),
+        Track("y").add(
+            duration, Tween(begin: startPosition.dy, end: endPosition.dy),
+            curve: Curves.linear),
+      ]);
+
       myChild = ControlledAnimation(
-        duration: Duration(milliseconds: 4000),
-        tween: Tween(begin: 0.0, end: 80.0),
-        builder: (context, height) {
-         
-              return Container(
-                decoration: boxDecoration,
-                width: 80.0,
-                height: height,
-                child: Container(),
-              );
-          
+        duration: duration,
+        tween: tween,
+        builder: (context, animation) {
+          return Transform.translate(
+            offset: Offset(animation["x"], animation["y"]),
+            child:  Submarine()
+          );
         },
       );
     } else {
@@ -48,3 +57,21 @@ class SubmarineAnimation extends StatelessWidget {
   }
 }
 
+class Submarine extends StatelessWidget {
+  const Submarine({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100.0,
+      height: 59.0,
+      child: Image.asset(
+        'assets/images/sub.png',
+        fit: BoxFit.cover,
+        semanticLabel: 'An image of a small submarine',
+      ),
+    );
+  }
+}

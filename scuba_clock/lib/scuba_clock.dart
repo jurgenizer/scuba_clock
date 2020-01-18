@@ -173,20 +173,14 @@ class _ScubaClockState extends State<ScubaClock> {
                 ),
               ),
             ),
-
-            Positioned( right: 0,       bottom: 0,child: SubmarineAnimation(remainderValue: _now.minute)),
+            
+            SubmarineAnimation(remainderValue: _now.minute),
+        
 
             Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(38)),
 
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: weatherInfo,
-              ),
-            ),
+          
 
             Positioned.fill(
                 child:
@@ -237,7 +231,7 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -65.0),
+                offset: Offset(0.0, -45.0),
                 child: Container(
                   width: 24,
                   height: 60,
@@ -255,7 +249,7 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.hour * radiansPerHour +
                   (_now.minute / 60) * radiansPerHour,
               child: Transform.translate(
-                offset: Offset(0.0, -65),
+                offset: Offset(0.0, -45.0),
                 child: TimeCircleAvatar(
                     angleRadians: _now.hour * radiansPerHour +
                         (_now.minute / 60) * radiansPerHour,
@@ -345,6 +339,14 @@ class _ScubaClockState extends State<ScubaClock> {
                     speed: 1.0,
                   ),
                 ),
+              ),
+            ),
+              Positioned(
+              left: 0,
+              bottom: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: weatherInfo,
               ),
             ),
           ],
