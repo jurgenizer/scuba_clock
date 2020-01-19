@@ -24,16 +24,23 @@ flutter:
   
   assets:
     - assets/images/sub.png
+    - assets/images/diver.png
 
 fonts:
-    - family: Nunito
-      fonts:
-        - asset: assets/fonts/Nunito-Regular.ttf
-          weight: 400
     - family: Quicksand
       fonts:
         - asset: assets/fonts/Quicksand-Regular.ttf
           weight: 400
         - asset: assets/fonts/Quicksand-Medium.ttf
           weight: 500
+    - family: Dosis
+      fonts:
+        - asset: assets/fonts/Dosis-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Dosis-Medium.ttf
+          weight: 500
+    - family: RalewayDosts
+      fonts:
+        - asset: assets/fonts/RalewayDots-Regular.ttf
+          weight: 400
     

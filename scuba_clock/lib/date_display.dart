@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
+import 'package:scuba_clock/animations/diver_animation.dart';
 
-class DateDisplay extends StatelessWidget {
+class DateDisplay extends DiverAnimation {
   final int weekdayValue;
   final int dayValue;
 
+  final int seedValue;
+
   const DateDisplay({
+    @required this.seedValue,
     @required this.weekdayValue,
     @required this.dayValue,
   })  : assert(weekdayValue != null),
-        assert(dayValue != null);
+        assert(dayValue != null),
+        assert(seedValue != null),
+          super(
+          seedValue: seedValue,
+          
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -18,101 +27,143 @@ class DateDisplay extends StatelessWidget {
     /// Get the size of the screen
     var screenSize = MediaQuery.of(context).size;
 
-      print('The day of the week is: $weekdayValue');
+    print('The day of the week is: $weekdayValue');
 
-          final yOffset = ((screenSize.shortestSide * weekdayValue / -8) + 40 ) ;
+    final yOffset = ((screenSize.shortestSide * weekdayValue / -8) + 40);
     print('The day of the week is: $weekdayValue');
 
     switch (weekdayValue) {
       // Using ISO 8601 convention, week starts on Monday
       case 1:
         print('Monday');
-        myChild =  myChild = Transform.translate(
+        myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child:Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+              DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Mon'),
+              ),
+            ],
           ),
-          label: Text('Monday'),
-        ),);
+        );
         break;
       case 2:
         print('Tuesday');
         myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child: Chip(
-            avatar: CircleAvatar(
-              backgroundColor: Styles.circleAvatarBackground,
-              child: Text(dayValue.toStringAsFixed(0)),
-            ),
-            label: Text('Tuesday'),
+          child: new Row(
+            children: <Widget>[
+             DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Tue'),
+              ),
+            ],
           ),
         );
         break;
       case 3:
         print('Wednesday');
-        myChild =  myChild = Transform.translate(
+        myChild = myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child: Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+               DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Wed'),
+              ),
+            ],
           ),
-          label: Text('Wednesday'),
-        ),);
+        );
         break;
       case 4:
         print('Thursday');
-        myChild =  myChild = Transform.translate(
+        myChild = myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child:Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+             DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Thu'),
+              ),
+            ],
           ),
-          label: Text('Thursday'),
-        ),);
+        );
         break;
       case 5:
         print('Friday');
-        myChild =  myChild = Transform.translate(
+        myChild = myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child:Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+              DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Fri'),
+              ),
+            ],
           ),
-          label: Text('Friday'),
-        ),);
+        );
         break;
       case 6:
         print('Saturday');
-        myChild =  myChild = Transform.translate(
+        myChild = myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child:Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+              DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Sat'),
+              ),
+            ],
           ),
-          label: Text('Saturday'),
-        ),);
+        );
         break;
       case 7:
         print('Sunday');
-        myChild =  myChild = Transform.translate(
+        myChild = Transform.translate(
           offset: new Offset(0.0, yOffset),
-          child:Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+          child: new Row(
+            children: <Widget>[
+              DiverAnimation(seedValue: seedValue),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Styles.circleAvatarBackground,
+                  child: Text(dayValue.toStringAsFixed(0)),
+                ),
+                label: Text('Sun'),
+              ),
+            ],
           ),
-          label: Text('Sunday'),
-        ),);
+        );
         break;
 
-      default:print('Unknown day');
-          myChild = Chip(
+      default:
+        print('Unknown day');
+        myChild = Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text('?'),
@@ -122,5 +173,25 @@ class DateDisplay extends StatelessWidget {
     }
 
     return new Container(child: myChild);
+  }
+}
+
+class Diver extends StatelessWidget {
+  const Diver({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
+      width: 66.0,
+      height: 28.0,
+      child: Image.asset(
+        'assets/images/diver.png',
+        fit: BoxFit.cover,
+        semanticLabel: 'An image of a small scuba diver',
+      ),
+    );
   }
 }

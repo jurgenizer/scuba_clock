@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+
 class SubmarineAnimation extends StatelessWidget {
   final int remainderValue;
   final Random random;
@@ -21,7 +22,7 @@ class SubmarineAnimation extends StatelessWidget {
     print('The height of sub start point is: $startPointY');
 
     final endPointX = screenSize.longestSide - screenSize.longestSide - 150;
-    final endPointY = screenSize.shortestSide / 2 - 120;
+    final endPointY = screenSize.shortestSide / 2 ;
 
     final startPosition = Offset(startPointX, startPointY);
     final endPosition = Offset(endPointX, endPointY);
@@ -45,7 +46,7 @@ class SubmarineAnimation extends StatelessWidget {
         builder: (context, animation) {
           return Transform.translate(
             offset: Offset(animation["x"], animation["y"]),
-            child:  Submarine()
+            child:  Submarine(),
           );
         },
       );

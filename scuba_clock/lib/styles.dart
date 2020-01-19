@@ -6,8 +6,10 @@ abstract class Styles {
   static const weatherInfoText = TextStyle(
     color: Color(0xfff5f5f5),
     //color: Color(0xff23bba6),
-    fontFamily: 'Quicksand',
-    fontSize: 17,
+    fontFamily: 'Dosis',
+    //fontFamily: 'Quicksand',
+
+    fontSize: 18,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w400,
   );
