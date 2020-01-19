@@ -2,23 +2,19 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:scuba_clock/animations/diver_animation.dart';
 
-class DateDisplay extends DiverAnimation {
+class DateDisplay extends StatelessWidget {
   final int weekdayValue;
   final int dayValue;
 
-  final int seedValue;
 
   const DateDisplay({
-    @required this.seedValue,
+ 
     @required this.weekdayValue,
     @required this.dayValue,
   })  : assert(weekdayValue != null),
-        assert(dayValue != null),
-        assert(seedValue != null),
-          super(
-          seedValue: seedValue,
-          
-        );
+        assert(dayValue != null);
+   
+     
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +36,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-              DiverAnimation(seedValue: seedValue),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -58,7 +54,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-             DiverAnimation(seedValue: seedValue),
+             DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -76,7 +72,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-               DiverAnimation(seedValue: seedValue),
+               DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -94,7 +90,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-             DiverAnimation(seedValue: seedValue),
+             DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -112,7 +108,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-              DiverAnimation(seedValue: seedValue),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -130,7 +126,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-              DiverAnimation(seedValue: seedValue),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -148,7 +144,7 @@ class DateDisplay extends DiverAnimation {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-              DiverAnimation(seedValue: seedValue),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -184,7 +180,7 @@ class Diver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
+      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
       width: 66.0,
       height: 28.0,
       child: Image.asset(

@@ -6,22 +6,21 @@ import 'package:simple_animations/simple_animations.dart';
 class DiverAnimation extends StatelessWidget {
   final int seedValue;
 
-  const DiverAnimation({
-    @required this.seedValue,
-  }) : assert(seedValue != null);
+  DiverAnimation({
+    this.seedValue,
+  });
 
   @override
   Widget build(BuildContext context) {
     Widget myChild;
 
     var random = new Random(seedValue);
-  
 
     final startPointX = 0.0 * random.nextDouble();
     final startPointY = 0.0 * random.nextDouble();
 
-    final endPointX = 40.0 * random.nextDouble();
-    final endPointY = -40.0 * random.nextDouble();
+    final endPointX = 5.0 * random.nextDouble();
+    final endPointY = -30.0 * random.nextDouble();
     print('endPointY  is: $endPointY');
 
     final startPosition = Offset(startPointX, startPointY);

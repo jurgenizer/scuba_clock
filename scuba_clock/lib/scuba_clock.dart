@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 
 import 'package:intl/intl.dart';
-import 'package:scuba_clock/animations/diver_animation.dart';
+
 import 'package:scuba_clock/date_display.dart';
 
 import 'package:vector_math/vector_math_64.dart' show radians;
@@ -28,7 +28,6 @@ import 'drawn_hour_dial.dart';
 import 'drawn_minute_dial.dart';
 import 'styles.dart';
 import 'time_circle_avatar.dart';
-
 
 /// Total distance traveled by a second or a minute hand, each second or minute,
 /// respectively.
@@ -146,10 +145,10 @@ class _ScubaClockState extends State<ScubaClock> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(_temperature),
-          Text(_temperatureRange),
-          Text(_condition),
-          Text(_location),
+          Text(_temperature, style: Styles.weatherInfoText),
+          Text(_temperatureRange,  style: Styles.weatherInfoText),
+          Text(_condition,  style: Styles.weatherInfoText),
+          Text(_location,  style: Styles.weatherInfoText),
         ],
       ),
     );
@@ -177,12 +176,13 @@ class _ScubaClockState extends State<ScubaClock> {
             ),
 
             SubmarineAnimation(remainderValue: _now.minute),
-         
 
             Positioned.fill(child: SineWaveAnimation(speed: 1.0)),
             Positioned.fill(child: BubbleAnimation(28)),
 
-            Positioned.fill(child: DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
+            Positioned.fill(
+                child:
+                    DrawnMinuteDial(color: Styles.minuteDialWhite, size: 1.0)),
 
             Positioned.fill(child: FishAnimation(9)),
             Positioned(
@@ -191,7 +191,6 @@ class _ScubaClockState extends State<ScubaClock> {
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: DateDisplay(
-                  seedValue: _now.minute,
                   weekdayValue: _now.weekday,
                   dayValue: _now.day,
                 ),
@@ -207,12 +206,12 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -108.0),
+                offset: Offset(0.0, -88.0),
                 child: Container(
                   width: 8,
-                  height: 48,
+                  height: 38,
                   decoration: BoxDecoration(
-                    color: Colors.lime,
+                    color: Styles.minuteHand,
                     borderRadius: BorderRadius.all(Radius.circular(4)),
                   ),
                 ),
@@ -230,7 +229,7 @@ class _ScubaClockState extends State<ScubaClock> {
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 19,
                     fontScaleFactor: 1.0,
-                    avatarRingColor: Colors.lime,
+                    avatarRingColor: Styles.minuteHand,
                     avatarColor: Styles.circleAvatarBackground,
                     handTime: '${_now.minute}'),
               ),
@@ -249,7 +248,7 @@ class _ScubaClockState extends State<ScubaClock> {
                   height: 60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.amber,
+                    color: Styles.hourHand,
                   ),
                 ),
               ),
@@ -268,16 +267,16 @@ class _ScubaClockState extends State<ScubaClock> {
                         (_now.minute / 60) * radiansPerHour,
                     radius: 24,
                     fontScaleFactor: 1.25,
-                    avatarRingColor: Colors.amber,
+                    avatarRingColor: Styles.hourHand,
                     avatarColor: Styles.circleAvatarBackground,
                     handTime: '${_now.hour}'),
               ),
             ),
 
-            // Original second hand drawn with [CustomPainter]. 
+            // Original second hand drawn with [CustomPainter].
             // For reference, to check accuracy of second dots.
             // Commented out after visual testing.
-            
+
             /*
             DrawnHand(
               color: customTheme.accentColor,
@@ -286,7 +285,7 @@ class _ScubaClockState extends State<ScubaClock> {
               angleRadians: _now.second * radiansPerTick,
             ),
             */
-            
+
             // Second dot hand 1
             ContainerHandAnimation(
               color: Colors.transparent,

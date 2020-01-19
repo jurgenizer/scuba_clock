@@ -1,15 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class Styles {
   static const weatherInfoText = TextStyle(
     color: Color(0xfff5f5f5),
-    //color: Color(0xff23bba6),
-    fontFamily: 'Dosis',
-    //fontFamily: 'Quicksand',
-
-    fontSize: 18,
+    fontFamily: 'Ubuntu',
+    fontSize: 19,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w400,
   );
@@ -24,8 +20,6 @@ abstract class Styles {
 
   static const seaGreen = Color(0xff23bba6);
 
-  // items, widgets etc.
-
   static const circleAvatarBackground = Color(0xff37474f);
 
   static const hourDialWhite = Colors.white12;
@@ -33,6 +27,10 @@ abstract class Styles {
   static const minuteDialWhite = Colors.white24;
 
   static const secondDots = Color(0xff23bba6);
+
+  static const minuteHand = Colors.lime;
+
+  static const hourHand = Colors.amber;
 
   /// darker colors
 

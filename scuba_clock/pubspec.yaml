@@ -26,21 +26,20 @@ flutter:
     - assets/images/sub.png
     - assets/images/diver.png
 
-fonts:
+  fonts:
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Ubuntu-Medium.ttf
+          weight: 500
     - family: Quicksand
       fonts:
         - asset: assets/fonts/Quicksand-Regular.ttf
           weight: 400
         - asset: assets/fonts/Quicksand-Medium.ttf
           weight: 500
-    - family: Dosis
-      fonts:
-        - asset: assets/fonts/Dosis-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Dosis-Medium.ttf
-          weight: 500
-    - family: RalewayDosts
+    - family: RalewayDots
       fonts:
         - asset: assets/fonts/RalewayDots-Regular.ttf
-          weight: 400
-    
+          weight: 400  
