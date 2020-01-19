@@ -146,9 +146,9 @@ class _ScubaClockState extends State<ScubaClock> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(_temperature, style: Styles.weatherInfoText),
-          Text(_temperatureRange,  style: Styles.weatherInfoText),
-          Text(_condition,  style: Styles.weatherInfoText),
-          Text(_location,  style: Styles.weatherInfoText),
+          Text(_temperatureRange, style: Styles.weatherInfoText),
+          Text(_condition, style: Styles.weatherInfoText),
+          Text(_location, style: Styles.weatherInfoText),
         ],
       ),
     );

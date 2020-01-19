@@ -26,7 +26,8 @@ abstract class Styles {
 
   static const minuteDialWhite = Colors.white24;
 
-  static const secondDots = Color(0xff23bba6);
+  //static const secondDots = Color(0xff23bba6);
+   static const secondDots =  Color(0xffcc874c);
 
   static const minuteHand = Colors.lime;
 
