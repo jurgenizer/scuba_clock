@@ -3,33 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class Styles {
-
   static const weatherInfoText = TextStyle(
-    color: Color(0xff23bba6),
+    color: Color(0xfff5f5f5),
+    //color: Color(0xff23bba6),
     fontFamily: 'Quicksand',
-    fontSize: 18,
+    fontSize: 17,
     fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
   );
 
-
   /// light colors
-  static const lightBackground = Color(0xff272083);
 
   static const azureCyan = Color(0xff5399b5);
 
   static const tealBlue = Color(0xff35829f);
 
-    static const tealBlueFish = Color(0xff35829f);
+  static const tealBlueFish = Color(0xff35829f);
 
   static const seaGreen = Color(0xff23bba6);
 
-  // items
+  // items, widgets etc.
+
+  static const circleAvatarBackground = Color(0xff37474f);
 
   static const hourDialWhite = Colors.white12;
 
   static const minuteDialWhite = Colors.white24;
-
 
   static const secondDots = Color(0xff23bba6);
 
@@ -53,8 +52,4 @@ abstract class Styles {
   static const peruMud = Color(0xffcc874c);
 
   static const lightBrown = Color(0xffb0661b);
-
-
-
-
 }

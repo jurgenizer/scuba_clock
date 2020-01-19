@@ -18,10 +18,10 @@ class SubmarineAnimation extends StatelessWidget {
 
     final startPointX = screenSize.longestSide;
     final startPointY = screenSize.shortestSide / 2 - 120;
-    print('The height of sub is: $startPointY');
+    print('The height of sub start point is: $startPointY');
 
     final endPointX = screenSize.longestSide - screenSize.longestSide - 150;
-    final endPointY = screenSize.shortestSide / 2 - 100;
+    final endPointY = screenSize.shortestSide / 2 - 120;
 
     final startPosition = Offset(startPointX, startPointY);
     final endPosition = Offset(endPointX, endPointY);
