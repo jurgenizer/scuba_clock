@@ -18,88 +18,101 @@ class DateDisplay extends StatelessWidget {
     /// Get the size of the screen
     var screenSize = MediaQuery.of(context).size;
 
-    final startPointX = screenSize.longestSide;
-    final startPointY = screenSize.shortestSide / 2 - 120;
+      print('The day of the week is: $weekdayValue');
 
+          final yOffset = ((screenSize.shortestSide * weekdayValue / -8) + 40 ) ;
     print('The day of the week is: $weekdayValue');
 
     switch (weekdayValue) {
       // Using ISO 8601 convention, week starts on Monday
       case 1:
         print('Monday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child:Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Monday'),
-        );
+        ),);
         break;
       case 2:
         print('Tuesday');
-        myChild = Chip(
-          avatar: CircleAvatar(
-            backgroundColor: Styles.circleAvatarBackground,
-            child: Text(dayValue.toStringAsFixed(0)),
+        myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child: Chip(
+            avatar: CircleAvatar(
+              backgroundColor: Styles.circleAvatarBackground,
+              child: Text(dayValue.toStringAsFixed(0)),
+            ),
+            label: Text('Tuesday'),
           ),
-          label: Text('Tuesday'),
         );
         break;
       case 3:
         print('Wednesday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child: Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Wednesday'),
-        );
+        ),);
         break;
       case 4:
         print('Thursday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child:Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Thursday'),
-        );
+        ),);
         break;
       case 5:
         print('Friday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child:Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Friday'),
-        );
+        ),);
         break;
       case 6:
         print('Saturday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child:Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Saturday'),
-        );
+        ),);
         break;
       case 7:
         print('Sunday');
-        myChild = Chip(
+        myChild =  myChild = Transform.translate(
+          offset: new Offset(0.0, yOffset),
+          child:Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text(dayValue.toStringAsFixed(0)),
           ),
           label: Text('Sunday'),
-        );
+        ),);
         break;
 
-      default:
-        print('Unknown day');
-        print('Sunday');
-        myChild = Chip(
+      default:print('Unknown day');
+          myChild = Chip(
           avatar: CircleAvatar(
             backgroundColor: Styles.circleAvatarBackground,
             child: Text('?'),
