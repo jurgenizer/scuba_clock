@@ -30,7 +30,7 @@ class SubmarineAnimation extends StatelessWidget {
     /// We want the submarine to appear every 15 minutes, so remainder / 15 should equal 0.
     print('The remainder is: $remainderValue');
 
-    if (remainderValue.remainder(5) == 0) {
+    if (remainderValue.remainder(15) == 0) {
       var tween = MultiTrackTween([
         Track("x").add(
             duration, Tween(begin: startPosition.dx, end: endPosition.dx),
