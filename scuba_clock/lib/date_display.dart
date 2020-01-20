@@ -6,15 +6,11 @@ class DateDisplay extends StatelessWidget {
   final int weekdayValue;
   final int dayValue;
 
-
   const DateDisplay({
- 
     @required this.weekdayValue,
     @required this.dayValue,
   })  : assert(weekdayValue != null),
         assert(dayValue != null);
-   
-     
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +25,8 @@ class DateDisplay extends StatelessWidget {
     print('The day of the week is: $weekdayValue');
 
     switch (weekdayValue) {
-      // Using ISO 8601 convention, week starts on Monday
+
+      /// Using ISO 8601 convention, week starts on Monday
       case 1:
         print('Monday');
         myChild = Transform.translate(
@@ -54,7 +51,7 @@ class DateDisplay extends StatelessWidget {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-             DiverAnimation(),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -72,7 +69,7 @@ class DateDisplay extends StatelessWidget {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-               DiverAnimation(),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,
@@ -90,7 +87,7 @@ class DateDisplay extends StatelessWidget {
           offset: new Offset(0.0, yOffset),
           child: new Row(
             children: <Widget>[
-             DiverAnimation(),
+              DiverAnimation(),
               Chip(
                 avatar: CircleAvatar(
                   backgroundColor: Styles.circleAvatarBackground,

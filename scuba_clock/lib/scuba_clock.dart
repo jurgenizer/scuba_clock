@@ -8,11 +8,7 @@ import 'dart:math';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-
 import 'package:intl/intl.dart';
-
-import 'package:scuba_clock/date_display.dart';
-
 import 'package:vector_math/vector_math_64.dart' show radians;
 
 import 'animations/background_animation.dart';
@@ -23,6 +19,8 @@ import 'animations/fish_animation.dart';
 import 'animations/sine_wave_animation.dart';
 import 'animations/wave_animation.dart';
 import 'animations/submarine_animation.dart';
+
+import 'date_display.dart';
 import 'container_hand.dart';
 import 'drawn_hour_dial.dart';
 import 'drawn_minute_dial.dart';
@@ -103,7 +101,8 @@ class _ScubaClockState extends State<ScubaClock> {
     _initialTime = DateTime.now();
     print('The initial time is: $_initialTime');
     _initialSecond = _initialTime.second;
-    //_initialSecond = 0; // test value
+    // test value _initial second
+    //_initialSecond = 0;
     // What is the initial second?
     print('The initial second is: $_initialSecond');
   }
@@ -113,7 +112,6 @@ class _ScubaClockState extends State<ScubaClock> {
       _now = DateTime.now();
       // What is the time?
       // print('The time is now: $_now');
-
       // Update once per second. Make sure to do it at the beginning of each
       // new second, so that the clock is accurate.
       _timer = Timer(
@@ -125,15 +123,7 @@ class _ScubaClockState extends State<ScubaClock> {
 
   @override
   Widget build(BuildContext context) {
-    // There are many ways to apply themes to your clock. Some are:
-    //  - Inherit the parent Theme (see ClockCustomizer in the
-    //    flutter_clock_helper package).
-    //  - Override the Theme.of(context).colorScheme.
-    //  - Create your own [ThemeData], demonstrated in [AnalogClock].
-    //  - Create a map of [Color]s to custom keys, demonstrated in
-    //    [DigitalClock].
-
-    /// Get the size of the screen
+    // Get the size of the screen
     // var screenSize = MediaQuery.of(context).size;
 
     // What is the height (shortest side) of the screen?

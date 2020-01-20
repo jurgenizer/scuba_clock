@@ -12,7 +12,7 @@ class TimeCircleAvatar extends StatelessWidget {
   const TimeCircleAvatar({
     @required this.angleRadians,
     @required this.radius,
-     @required this.fontScaleFactor,
+    @required this.fontScaleFactor,
     @required this.avatarRingColor,
     @required this.avatarColor,
     @required this.handTime,
@@ -27,22 +27,18 @@ class TimeCircleAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.rotate(
       angle: angleRadians * -1,
-      child:  CircleAvatar(
+      child: CircleAvatar(
         radius: radius,
-    backgroundColor: avatarRingColor,
- 
-   child: CircleAvatar(
-        radius: radius - 4,
-    backgroundColor: avatarColor,
-    
-   child: Text(handTime, textScaleFactor: fontScaleFactor,),
-  ),
-  ),
-
-
+        backgroundColor: avatarRingColor,
+        child: CircleAvatar(
+          radius: radius - 4,
+          backgroundColor: avatarColor,
+          child: Text(
+            handTime,
+            textScaleFactor: fontScaleFactor,
+          ),
+        ),
+      ),
     );
   }
- 
-
-
 }

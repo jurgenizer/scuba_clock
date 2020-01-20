@@ -40,9 +40,9 @@ class CurvePainter extends CustomPainter {
     final path = Path();
 
     final y1 = sin(value + pi / 2);
-    
+
     final y2 = sin(value + (3 * pi) / 2);
-    
+
     final startPointY = size.height / 2;
     final controlPointY1 = size.height * (0.5 + 0.4 * y1);
 

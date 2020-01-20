@@ -3,6 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+/// TODO: Use rendering widget from simple_animations package to monitor
+/// animation progress and generate new random(), restart animation after each animation cycyle
+
 class DiverAnimation extends StatelessWidget {
   final int seedValue;
 

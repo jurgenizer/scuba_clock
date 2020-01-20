@@ -1,14 +1,13 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+/// TODO: implement random start and end points for submarine.
 
 class SubmarineAnimation extends StatelessWidget {
   final int remainderValue;
-  final Random random;
+  // final Random random;
 
-  SubmarineAnimation({this.remainderValue, this.random});
+  SubmarineAnimation({this.remainderValue});
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +18,16 @@ class SubmarineAnimation extends StatelessWidget {
 
     final startPointX = screenSize.longestSide;
     final startPointY = screenSize.shortestSide / 2 - 120;
-    print('The height of sub start point is: $startPointY');
+    // print('The height of sub start point is: $startPointY');
 
     final endPointX = screenSize.longestSide - screenSize.longestSide - 150;
-    final endPointY = screenSize.shortestSide / 2 ;
+    final endPointY = screenSize.shortestSide / 2;
 
     final startPosition = Offset(startPointX, startPointY);
     final endPosition = Offset(endPointX, endPointY);
     final duration = Duration(milliseconds: 10000);
 
+    /// We want the submarine to appear every 15 minutes, so remainder / 15 should equal 0.
     print('The remainder is: $remainderValue');
 
     if (remainderValue.remainder(2) == 0) {
@@ -46,7 +46,7 @@ class SubmarineAnimation extends StatelessWidget {
         builder: (context, animation) {
           return Transform.translate(
             offset: Offset(animation["x"], animation["y"]),
-            child:  Submarine(),
+            child: Submarine(),
           );
         },
       );

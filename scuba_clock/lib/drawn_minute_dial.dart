@@ -38,7 +38,7 @@ class _DialPainter extends CustomPainter {
 
   final double smallTickLength = 8.0;
   final double smallTickWidth = 3.0;
-   final double largeTickLength = 8.0;
+  final double largeTickLength = 8.0;
   final double largeTickWidth = 5.0;
 
   @override
@@ -46,7 +46,7 @@ class _DialPainter extends CustomPainter {
     var tickMarkLength;
     final smallAngle = 2 * pi / 60;
     final largeAngle = 2 * pi / 12;
-    final radius = ((size.shortestSide / 2) * dialSize) -42;
+    final radius = ((size.shortestSide / 2) * dialSize) - 42;
     final middleX = (max(size.width, size.height) / 2);
     final middleY = (min(size.width, size.height) / 2);
     canvas.save();
@@ -56,15 +56,14 @@ class _DialPainter extends CustomPainter {
       ..strokeWidth = smallTickWidth
       ..strokeCap = StrokeCap.round;
 
-        final largeTickPaint = Paint()
+    final largeTickPaint = Paint()
       ..color = color
       ..strokeWidth = largeTickWidth
       ..strokeCap = StrokeCap.round;
 
-    // drawing
     canvas.translate(middleX, middleY);
 
-    // the first 15 marks using smallAngle
+    /// The first 15 marks using smallAngle
     for (var i = 0; i < 15; i++) {
       tickMarkLength = smallTickLength;
 
@@ -74,7 +73,7 @@ class _DialPainter extends CustomPainter {
       canvas.rotate(smallAngle);
     }
 
-    // the 12 major marks using largeAngle
+    /// The 12 major marks using largeAngle
     for (var j = 0; j < 12; j++) {
       tickMarkLength = largeTickLength;
 

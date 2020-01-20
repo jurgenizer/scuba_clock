@@ -22,7 +22,7 @@ class ContainerHandAnimation extends Hand {
   /// The child widget used as the clock hand and rotated by [angleRadians], see below.
   /// In this case the child widget will be an animated dot and the rotation
   /// will be handled by the animated tween (2 * pi radians in 60 seconds).
-  /// 
+  ///
   final Widget child;
 
   @override
@@ -30,7 +30,6 @@ class ContainerHandAnimation extends Hand {
     final tween = MultiTrackTween([
       Track("rotation")
           .add(Duration(seconds: 60), Tween(begin: 0.0, end: 2 * pi))
-           
     ]);
 
     return ControlledAnimation(

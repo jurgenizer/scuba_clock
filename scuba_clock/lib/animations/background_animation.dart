@@ -8,7 +8,7 @@ class BackgroundAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tween = MultiTrackTween([
-      Track("color1").add(Duration(seconds:20),
+      Track("color1").add(Duration(seconds: 20),
           ColorTween(begin: Styles.deepKoamaru, end: Styles.azureCyan)),
       Track("color2").add(Duration(seconds: 20),
           ColorTween(begin: Styles.middleRedPurple, end: Styles.seaGreen))
@@ -30,5 +30,3 @@ class BackgroundAnimation extends StatelessWidget {
     );
   }
 }
-
-

@@ -49,7 +49,7 @@ class _FishAnimationState extends State<FishAnimation> {
 
 class ParticleModel {
   Animatable tween;
-  //double size;
+
   AnimationProgress animationProgress;
   Random random;
 
@@ -110,8 +110,6 @@ class ParticlePainter extends CustomPainter {
               fontFamily: fishFontFamily,
               package: fishFontPackage));
       textPainter.layout();
-
-     // textPainter.layout();
 
       textPainter.paint(canvas, position);
     });

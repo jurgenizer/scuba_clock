@@ -10,7 +10,7 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
   );
 
-  /// light colors
+  /// colors
 
   static const azureCyan = Color(0xff5399b5);
 
@@ -26,14 +26,11 @@ abstract class Styles {
 
   static const minuteDialWhite = Colors.white24;
 
-  //static const secondDots = Color(0xff23bba6);
-   static const secondDots =  Color(0xffcc874c);
+  static const secondDots = Color(0xffcc874c);
 
   static const minuteHand = Colors.lime;
 
   static const hourHand = Colors.amber;
-
-  /// darker colors
 
   static const darkBackground = Color(0xff272083);
 
@@ -45,7 +42,6 @@ abstract class Styles {
 
   static const middleRedPurple = Color(0xff100844);
 
-  /// bright colors
   static const middleYellowRed = Color(0xffdab378);
 
   static const sapphireBlue = Color(0xff02629f);

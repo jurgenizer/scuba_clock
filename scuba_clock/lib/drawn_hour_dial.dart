@@ -43,9 +43,9 @@ class _DialPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var tickMarkLength;
     final angle = 2 * pi / 12;
-    final radius = ((size.shortestSide / 2) * dialSize) -60;
-    final middleX = (max(size.width, size.height) / 2 );
-    final middleY =(min(size.width, size.height) / 2 );
+    final radius = ((size.shortestSide / 2) * dialSize) - 60;
+    final middleX = (max(size.width, size.height) / 2);
+    final middleY = (min(size.width, size.height) / 2);
     canvas.save();
 
     final tickPaint = Paint()
@@ -53,10 +53,9 @@ class _DialPainter extends CustomPainter {
       ..strokeWidth = tickWidth
       ..strokeCap = StrokeCap.round;
 
-    // drawing
+    /// Drawing the ticks
     canvas.translate(middleX, middleY);
     for (var i = 0; i < 12; i++) {
-      // make the length and stroke of the tick marker longer and thicker depending
       tickMarkLength = tickLength;
 
       canvas.drawLine(new Offset(0.0, -radius),
