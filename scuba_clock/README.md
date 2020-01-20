@@ -1,7 +1,7 @@
 # Scuba Clock
 
 This app is a scuba-themed analog clock.
-It has a light theme and a dark theme, and displays sample weather and location data.
+It displays the actual time and date, and sample weather and location data.
 
 <img src='analog.gif' width='350'>
 
