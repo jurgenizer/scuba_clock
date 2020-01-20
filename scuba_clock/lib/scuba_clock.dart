@@ -214,7 +214,7 @@ class _ScubaClockState extends State<ScubaClock> {
               size: 1.0,
               angleRadians: _now.minute * radiansPerTick,
               child: Transform.translate(
-                offset: Offset(0.0, -108.0),
+                offset: Offset(0.0, -110.0),
                 child: TimeCircleAvatar(
                     angleRadians: _now.minute * radiansPerTick,
                     radius: 19,
