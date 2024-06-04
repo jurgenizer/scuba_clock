@@ -1,5 +1,7 @@
 # Scuba Clock
 
+Note: now archived.
+
 This app is a scuba-themed analog clock, created for the Flutter Clock Challenge.
 It displays the actual time and date, and sample weather and location data.
 
